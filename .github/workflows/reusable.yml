@@ -1,7 +1,7 @@
 name: Reusable workflow
 
 on:
-  workflow_call:
+  workflow_call: # This event triggers the workflow
     inputs:
       who-to-greet:
         description: 'The person to greet'
