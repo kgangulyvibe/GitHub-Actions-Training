@@ -90,11 +90,3 @@ jobs:
             - name: Use action from Tag
               uses: actions/checkout@v4
 
-  # write a job that runs a docker container docker://ghcr.io/wufland/container-demo:latest as an action
-  docker-job:
-            runs-on: ubuntu-latest
-            steps:
-            - name: Run Docker Container
-              uses: docker://ghcr.io/wufland/container-demo:latest
-
-            - uses: docker://alpine:latest # this will run the alpine container
