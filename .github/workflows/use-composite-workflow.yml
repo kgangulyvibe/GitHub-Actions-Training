@@ -1,4 +1,10 @@
-on: [push]
+name: Demo Composite Workflow
+
+on:
+    push:
+        branches: 
+        - main
+    workflow_dispatch:
 
 jobs:
   hello_world_job:

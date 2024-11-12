@@ -1,4 +1,4 @@
-name: Starter Demo Workflow
+name: Demo Starter Workflow
 
 # Workflow Trigger: This workflow runs on push and pull request events to the main branch
 on:
@@ -57,30 +57,29 @@ jobs:
           run: echo "The OS is ${{ matrix.os }}"
 
   # You can use different shells like bash, pwsh, python, cmd
+  # docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#defaultsrunshell
+  # pwsh (Powershell Core) is the default shell on Windows.
+  # For Linux/macOS, the default shell is sh.
+
   Shell-job:
         runs-on: ubuntu-latest
         needs: HelloWorld-job
 
         steps:
         - name: Checkout repository
-          uses: actions/checkout@v2
+          uses: actions/checkout@v4
 
         - name: Print using Bash
           run: echo "Hello from Bash"
 
         - name: Print using PowerShell (pwsh)
           run: Write-Output "Hello from PowerShell"
-          shell: pwsh
+          shell: pwsh 
 
         - name: Print using Python
           run: |
             python -c "print('Hello from Python')"
-
-        - name: Print using Command Prompt (cmd)
-          run: echo Hello from Command Prompt
-          shell: cmd
-
-
+            
   # You can reference GitHub Actions using SHA, Tag, or Branch
   reference-job:
             runs-on: ubuntu-latest
@@ -91,7 +90,7 @@ jobs:
 
             - run: echo "Hi from SHA"
             - name: Use action from SHA
-              uses: actions/checkout@4e3f3e4
+              uses: actions/checkout@3b9b8c8
 
             - run: echo "Hi from Tag"
             - name: Use action from Tag

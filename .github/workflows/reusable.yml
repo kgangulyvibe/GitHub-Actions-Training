@@ -1,4 +1,4 @@
-name: Reusable workflow
+name: Demo Reusable Workflow
 
 on:
   workflow_call: # This event triggers the workflow

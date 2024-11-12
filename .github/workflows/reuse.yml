@@ -1,4 +1,4 @@
-name: Reuse other workflow
+name: Demo Reuse Other Workflow
 
 on: [workflow_dispatch]
 
