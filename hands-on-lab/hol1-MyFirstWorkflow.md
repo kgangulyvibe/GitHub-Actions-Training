@@ -40,7 +40,7 @@ name: GitHub Actions Demo
 5. Add the triggers to the worklow with the help of <kbd>Ctrl</kbd>+<kbd>Space</kbd> and the documentation. We want the workflow to trigger:
   - on every push to the `main` branch, but not when there are changes to files in the `.github` folder.
   - on every pull request with `main` as the base branch
-  - Every sunday at 6:15 UTC
+  - Every sunday at 6:15 UTC ([crontab syntax](https://linuxhandbook.com/crontab/))
   - Manually
 
 <details>
