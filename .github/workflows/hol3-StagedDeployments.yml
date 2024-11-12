@@ -1,4 +1,4 @@
-﻿name: HOL1 My First Workflow
+﻿name: HOL3 Staged Deployments
 on:
   push:
     branches: [ main ]
