@@ -49,36 +49,14 @@ jobs:
       - name: Use Output Variable
         run: echo "The output variable is $myOutput"
   
-  matrix_job:
-    name: Matrix
-    runs-on: ${{ matrix.runner }}
-    if: github.event.inputs.run_matrix == 'true' # TO RUN THIS JOB, SET THE INPUT run_matrix TO 'true' IN THE WORKFLOW FILE 
-    
-    strategy:
-      matrix: 
-        node-version: [10, 12, 14]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-    
-      - name: Display Node.js version
-        run: node -v
-
-      # Step: Conditional step
-      - name: Conditional Step
-        if: ${{ matrix.node-version == 14 }}
-        run: echo "This runs only for Node.js version 14"
-    
-      # Step: Using secrets
-      - name: Print Secret
-        run: echo "The secret is ${{ secrets.TESTSECRET }}" # This will print the secret in the logs as plain text
-        env: 
-          MY_SECRET: ${{ secrets.TESTSECRET }} # This will set the secret as an environment variable
-      # print the masked secret
-      - name: Print Masked MY_SECRET
-        run: echo "The masked secret is $MY_SECRET"
+  # write a simple matrix job without errors
+  matrix-job:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+        - name: Print OS
+          run: echo "The OS is ${{ matrix.os }}"
