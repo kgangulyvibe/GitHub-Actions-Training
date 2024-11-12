@@ -6,6 +6,13 @@ on:
   push:
     branches: 
       - main
+  workflow_dispatch:
+    # set run_matrix to 'true' to run the matrix job
+    inputs:
+      run_matrix:
+        description: 'Run the matrix job'
+        required: false
+        default: 'false'
   pull_request:
     branches:
       - main
@@ -45,7 +52,7 @@ jobs:
   matrix_job:
     name: Matrix
     runs-on: ${{ matrix.runner }}
-    if: github.event.inputs.run_matrix == 'true'
+    if: github.event.inputs.run_matrix == 'true' # TO RUN THIS JOB, SET THE INPUT run_matrix TO 'true' IN THE WORKFLOW FILE 
     
     strategy:
       matrix: 
