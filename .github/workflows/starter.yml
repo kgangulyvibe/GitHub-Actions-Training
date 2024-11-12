@@ -1,4 +1,4 @@
-name: Hello World Workflow
+name: Starter Demo Workflow
 
 # Workflow Trigger: This workflow runs on push and pull request events to the main branch
 on:
