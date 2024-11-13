@@ -1,0 +1,18 @@
+# write a simple github actions workflow to use the self hosted runner runs-on: self-hosted with runner group Default, name of runner KG-WORK-LAPTOP and labels 'self-hosted', 'Windows', 'X64'
+
+name: Demo Self Hosted Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print Runner Info
+        run: echo "Running on self-hosted runner KG-WORK-LAPTOP with labels 'self-hosted', 'Windows', 'X64'"
+
+        
